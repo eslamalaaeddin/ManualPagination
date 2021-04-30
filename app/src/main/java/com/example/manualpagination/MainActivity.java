@@ -91,9 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (userScrolled && visibleItemCount + pastVisibleItems == totalItemCount) {
                     userScrolled = false;
-                    if (page != -1) {
-                        getReposByName(query);
-                    }
+                    getReposByName(query);
                 }
             }
         });
@@ -111,10 +109,9 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(@NonNull Repository repository) {
-
                         //this is for not loading empty pages over and over
                         if (repository.getItems().isEmpty()){
-                           page = -1;
+                            reposRecyclerView.clearOnScrollListeners();
                         }
 
                         if (reposAdapter == null) {
