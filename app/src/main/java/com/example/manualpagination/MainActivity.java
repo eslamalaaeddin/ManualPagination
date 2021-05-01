@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         //Search button
         searchImageButton = findViewById(R.id.searchImageButton);
         searchImageButton.setOnClickListener(v -> {
+            //For resetting page
+            page = 1;
             query = searchEditText.getText().toString();
             if (reposAdapter != null){
                 reposAdapter.items.clear();
